@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnicare Tech | Book a Request</title>
+    <link rel="icon" href="favicon_io/favicon.ico" sizes="any">
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a class="logo" href="index.html">
+                <img class="brand-mark" src="favicon_io/Business%20Company%20Logo.png" alt="" width="44" height="44">
+                OMNICARE <span>TECH</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Services</a>
+                <a href="packages.html">Packages</a>
+                <a href="book-request.html" aria-current="page">Book Request</a>
+                <a href="dashboard.html" class="btn-secondary"><i class="fa-solid fa-gauge" aria-hidden="true"></i> Portal Login</a>
+                <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="false"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="badge">Start with a conversation</span>
+                <h1>Book a free 15-minute IT audit</h1>
+                <p>Tell us about your business and we'll get in touch to arrange a quick review of your IT setup and practical next steps.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="audit-section">
+            <div class="container">
+                <div class="card form-card">
+                    <h2>What we can review</h2>
+                    <div class="audit-includes">
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Computer condition, operating system updates and antivirus coverage</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Office Wi-Fi, basic network connectivity and printer setup</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Backup routines and basic security practices</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> A short list of recommended improvements and service options</li>
+                        </ul>
+                    </div>
+
+                    <h2>Request a call back</h2>
+                    <p>Share your contact details and our team will reach out to arrange the audit or discuss a service request.</p>
+                    <form id="public-audit-form">
+                        <div class="form-group">
+                            <label for="businessName">Business Name</label>
+                            <input type="text" id="businessName" name="businessName" placeholder="e.g. Thika Logistics Ltd" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactPerson">Contact Person</label>
+                                <input type="text" id="contactPerson" name="contactPerson" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="name@company.co.ke" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+254 712 345 678" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="physicalAddress">Physical Location</label>
+                                <input type="text" id="physicalAddress" name="physicalAddress" placeholder="Town / Office Building" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary btn-block">Submit Request</button>
+                    </form>
+                    <div id="form-response" class="response-message" role="status" aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

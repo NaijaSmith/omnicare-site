@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnicare Tech | Management Console</title>
+    <link rel="icon" href="favicon_io/favicon.ico" sizes="any">
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <img class="brand-mark" src="favicon_io/Business%20Company%20Logo.png" alt="" width="40" height="40">
+                <span>Omnicare Console</span>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active" data-tab="clients"><i class="fa-solid fa-building"></i> Clients</li>
+                <li data-tab="tickets"><i class="fa-solid fa-ticket"></i> Support Tickets</li>
+                <li data-tab="billing"><i class="fa-solid fa-file-invoice-dollar"></i> Billing & Retainers</li>
+            </ul>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="topbar">
+                <h2>System Overview</h2>
+                <div class="topbar-actions">
+                    <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="false"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+                    <div class="status-indicator">
+                        <span class="dot online"></span> Backend Connection Live
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-container">
+                <section id="tab-clients" class="tab-content active">
+                    <div class="section-header">
+                        <h3>Registered Clients</h3>
+                        <button class="btn-secondary" onclick="loadClients()"><i class="fa-solid fa-rotate"></i> Refresh</button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Business Name</th>
+                                <th>Contact Person</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clients-table-body"></tbody>
+                    </table>
+                </section>
+
+                <section id="tab-tickets" class="tab-content">
+                    <div class="section-header">
+                        <h3>Support Tickets</h3>
+                    </div>
+                    <div class="card form-card compact">
+                        <h4>Create New Ticket</h4>
+                        <form id="create-ticket-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Client ID</label>
+                                    <input type="number" id="ticketClientId" required placeholder="e.g. 1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Priority</label>
+                                    <select id="ticketPriority">
+                                        <option value="LOW">LOW</option>
+                                        <option value="MEDIUM" selected>MEDIUM</option>
+                                        <option value="HIGH">HIGH</option>
+                                        <option value="CRITICAL">CRITICAL</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Issue Title</label>
+                                <input type="text" id="ticketTitle" required placeholder="e.g. Switch Failure">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="ticketDescription" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">Open Ticket</button>
+                        </form>
+                    </div>
+
+                    <div class="section-header" style="margin-top: 22px;">
+                        <h3>Client Ticket Feed</h3>
+                    </div>
+                    <div id="ticket-list" class="ticket-list"></div>
+                </section>
+
+                <section id="tab-billing" class="tab-content">
+                    <div class="section-header">
+                        <h3>Billing & Retainers</h3>
+                    </div>
+                    <div class="card form-card compact">
+                        <h4>Generate Retainer Invoice</h4>
+                        <form id="generate-invoice-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Client ID</label>
+                                    <input type="number" id="invoiceClientId" required placeholder="e.g. 1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Amount (KES)</label>
+                                    <input type="number" id="invoiceAmount" step="0.01" min="0" value="15000" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary">Generate Invoice</button>
+                        </form>
+                    </div>
+
+                    <div class="section-header" style="margin-top: 22px;">
+                        <h3>Clients Ready for Billing</h3>
+                    </div>
+                    <div id="billing-list" class="billing-list"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
